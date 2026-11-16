@@ -5,6 +5,8 @@ description: "한글 HWP/HWPX 파일의 변환·읽기·편집과 편집 가능�
 
 # 편집 가능한 고품질 한글 문서
 
+이 포크는 100파일 제한용입니다. 원본 참고문서 19개는 내용 삭제 없이 [통합 참고서](REFERENCES.md)에 합쳤습니다. 기존 references/*.md 표기가 남아 있으면 같은 파일명 제목의 절을 읽습니다. 개발용 tests/만 제외했으며 실행 스크립트·양식·예시는 원본 그대로 유지합니다.
+
 모델은 요구 이해와 원고 구성에 집중하고, 코드는 입력 계약·자원·내용 보존·파일 저장을 검증한다. 같은 명세의 재현성과 서로 다른 모델의 결과 일관성은 별개다. 실제 모델 비교 없이 후자를 보장하지 않는다.
 
 아스트라(Astra, `gpt-6-astra`)를 사용하는 Codex 환경을 지원한다. 집필·도식 설계·검토에 사용자 지정 모델과 추론 설정을 유지하며, 사용자 요청 없이 Astra로 전환하거나 추가 모델을 호출하지 않는다. Astra와 Luna 모두 같은 입력 계약·검사 경로를 사용한다.
@@ -39,11 +41,11 @@ python scripts/one_shot.py /absolute/path/spec.json --report /absolute/path/qual
 | `research-plan` | 연구학교 연구계획서 완본(28쪽, 표지·실태분석·SWOT·추진체계도 도식·실행계획 표). `scripts/research_plan.py`로 복제·생성 |
 | `markdown` | 범용 보고서·회의록·제안서. `template` 스타일 선택 가능 |
 
-입력·결과 계약은 [one-shot.md](references/one-shot.md), v2 표 도식과 이미지 경로는 [visual-elements.md](references/visual-elements.md)를 읽는다. 예시는 가상 검증 자료이며 실제 기관 정보가 아니다.
+입력·결과 계약은 [one-shot.md](REFERENCES.md#ref-one-shot), v2 표 도식과 이미지 경로는 [visual-elements.md](REFERENCES.md#ref-visual-elements)를 읽는다. 예시는 가상 검증 자료이며 실제 기관 정보가 아니다.
 
-짧은 **과정 요약 + 표 흐름도**를 새로 만들고 별도 양식·분기 그래프 요구가 없다면 [summary-workflow.md](references/summary-workflow.md)의 선택형 콘텐츠 레시피를 우선 검토한다. 내용만 작성하면 코드가 검증된 요약 배치와 연결을 구성한다. 복잡한 관계·긴 보고서·지정 서식은 기존 v2를 사용한다. 모든 문서에 같은 단계 수나 지면을 강제하지 않는다.
+짧은 **과정 요약 + 표 흐름도**를 새로 만들고 별도 양식·분기 그래프 요구가 없다면 [summary-workflow.md](REFERENCES.md#ref-summary-workflow)의 선택형 콘텐츠 레시피를 우선 검토한다. 내용만 작성하면 코드가 검증된 요약 배치와 연결을 구성한다. 복잡한 관계·긴 보고서·지정 서식은 기존 v2를 사용한다. 모든 문서에 같은 단계 수나 지면을 강제하지 않는다.
 
-**원문을 축약하지 않는 상세 보고서**, 코드·로그가 긴 기술 문서, 승인된 보고서를 기준으로 집필을 지도하는 요청은 [source-report.md](references/source-report.md)를 읽는다. 원문 보존 조립기와 선택형 `technical-report` 조판을 제공하며, 특정 모델·장 수·도식 수·쪽 수를 강제하지 않는다.
+**원문을 축약하지 않는 상세 보고서**, 코드·로그가 긴 기술 문서, 승인된 보고서를 기준으로 집필을 지도하는 요청은 [source-report.md](REFERENCES.md#ref-source-report)를 읽는다. 원문 보존 조립기와 선택형 `technical-report` 조판을 제공하며, 특정 모델·장 수·도식 수·쪽 수를 강제하지 않는다.
 
 ## 품질 계약과 한계
 
@@ -101,12 +103,12 @@ python scripts/finalize_hwpx.py output.hwpx --hancom
 
 | 요청 | 경로 |
 |---|---|
-| 공문 표기 | [gonmunseo-2025-writing-rules.md](references/gonmunseo-2025-writing-rules.md) |
-| 요약보고 | [yoyak-bogo-style.md](references/yoyak-bogo-style.md) |
-| 계획·검토보고 | [geomto-bogo-style.md](references/geomto-bogo-style.md) |
-| 범용 보고서 | [report-style.md](references/report-style.md) |
-| HTML 활동지 | `html2hwpx.py`, [html-to-hwpx.md](references/html-to-hwpx.md) |
-| 복잡한 양식·표·각주·수식·직인·원본 편집 | [advanced-workflows.md](references/advanced-workflows.md)의 해당 워크플로우 |
+| 공문 표기 | [gonmunseo-2025-writing-rules.md](REFERENCES.md#ref-gonmunseo-2025-writing-rules) |
+| 요약보고 | [yoyak-bogo-style.md](REFERENCES.md#ref-yoyak-bogo-style) |
+| 계획·검토보고 | [geomto-bogo-style.md](REFERENCES.md#ref-geomto-bogo-style) |
+| 범용 보고서 | [report-style.md](REFERENCES.md#ref-report-style) |
+| HTML 활동지 | `html2hwpx.py`, [html-to-hwpx.md](REFERENCES.md#ref-html-to-hwpx) |
+| 복잡한 양식·표·각주·수식·직인·원본 편집 | [advanced-workflows.md](REFERENCES.md#ref-advanced-workflows)의 해당 워크플로우 |
 | 레퍼런스 재현 | `doc_spec.py`, 고급 참고서 워크플로우 R |
 | 읽기·텍스트 추출 | `text_extract.py`, 고급 참고서 워크플로우 E |
 

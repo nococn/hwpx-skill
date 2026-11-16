@@ -1,3 +1,7 @@
+# 100파일 제한용 포크
+
+총 99파일: 개발용 tests/ 44파일을 제외하고 참고문서 19개를 [REFERENCES.md](REFERENCES.md) 하나로 합쳤습니다. 실행 스크립트, 템플릿, 자산, 예시는 보존했습니다. 원본 개발 테스트 명령은 이 포크에 포함되지 않으며 상위 저장소에서 실행합니다.
+
 # hwpx-skill
 
 [![GitHub stars](https://img.shields.io/github/stars/jkf87/hwpx-skill?style=social)](https://github.com/jkf87/hwpx-skill/stargazers)
@@ -23,14 +27,14 @@ python scripts/one_shot.py spec.json --report quality.json
 
 지원 유형은 `official-letter`, `brief-report`, `plan-report`, `markdown`입니다.
 v1 원고/공문 입력과 v2 의미 블록·사실 계약·편집 가능한 표 도식을 지원합니다.
-계약은 `schemas/one-shot.schema.json`, 설명은 `references/one-shot.md`에 있습니다.
+계약은 `schemas/one-shot.schema.json`, 설명은 `REFERENCES.md#ref-one-shot`에 있습니다.
 실제 페이지는 `render_hwpx.py`로 한컴 PDF/PNG를 생성해 확인합니다. 모델 간 품질 일관성은 별도 실측이 필요합니다.
 
 ## 아스트라(Astra) 지원
 
 Codex에서 아스트라(`gpt-6-astra`)를 이용한 보고서 집필·표 도식 설계·원문 대조를 지원합니다.
 Astra(xhigh)의 상세 보고서 제작과 Luna 집필 코칭 사례를 바탕으로
-[원문 보존형 상세 보고서 지침](references/source-report.md), 코드·로그 보존 조립기,
+[원문 보존형 상세 보고서 지침](REFERENCES.md#ref-source-report), 코드·로그 보존 조립기,
 선택형 `technical-report` 조판을 제공합니다.
 
 사용자가 지정한 모델·추론 설정을 존중하며 Astra로 자동 전환하거나 모델 API를 직접 호출하지 않습니다.
@@ -137,7 +141,7 @@ python3 scripts/html2hwpx.py input.html output.hwpx \
   --keep-xml build/html2hwpx
 ```
 
-중간 산출물은 `design-plan.xml → section0.xml` 순서이며, 생성 후 네임스페이스 수정·줄배치 캐시 정리·레이아웃 검증까지 자동 실행한다. 지원 HTML과 디자인 매핑은 [`references/html-to-hwpx.md`](references/html-to-hwpx.md)를 참고한다.
+중간 산출물은 `design-plan.xml → section0.xml` 순서이며, 생성 후 네임스페이스 수정·줄배치 캐시 정리·레이아웃 검증까지 자동 실행한다. 지원 HTML과 디자인 매핑은 [`REFERENCES.md#ref-html-to-hwpx`](REFERENCES.md#ref-html-to-hwpx)를 참고한다.
 
 ### 행정안전부 표준 기안문(별지 제1호서식) 생성
 
@@ -207,7 +211,7 @@ python3 scripts/fill_hwpx.py remove-header doc.hwpx out.hwpx
 python3 scripts/fill_hwpx.py set-cell doc.hwpx out.hwpx --table 0 --row 0 --col 1 --bg FFE600 --border on
 python3 scripts/fill_hwpx.py merge-cells doc.hwpx out.hwpx --table 0 --row 0 --col 0 --row2 0 --col2 2
 
-# 네이티브 수식 삽입 (문법: references/equation-syntax.md)
+# 네이티브 수식 삽입 (문법: REFERENCES.md#ref-equation-syntax)
 python3 scripts/fill_hwpx.py add-equation doc.hwpx out.hwpx --after "기준 문구" --script "x^2+y^2=z^2"
 
 # 본문 글자/문단 서식 (굵게·색·크기·정렬·줄간격)
